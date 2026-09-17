@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5d6dc, #d8a0ad, #f5d6dc);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    min-height: 100vh;
+}
+
+.btn1 {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: #722f3f;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(80, 20, 35, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.btn1:hover {
+    background-color: #a64b61;
+    transform: scale(1.05);
+}
+
+/* Corazones de fondo */
+.corazones {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.corazon {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    transform: rotate(45deg);
+    animation: flotar linear infinite;
+}
+
+/* Partes redondas del corazón */
+.corazon::before,
+.corazon::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.corazon::before {
+    top: -7px;
+    left: 0;
+}
+
+.corazon::after {
+    top: 0;
+    left: -7px;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(110vh) rotate(45deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Posición de corazones */
+.corazon:nth-child(1) {
+    left: 8%;
+    animation-duration: 9s;
+    animation-delay: 0s;
+}
+
+.corazon:nth-child(2) {
+    left: 18%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    transform: scale(0.7) rotate(45deg);
+}
+
+.corazon:nth-child(3) {
+    left: 30%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+    transform: scale(0.5) rotate(45deg);
+}
+
+.corazon:nth-child(4) {
+    left: 42%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+    transform: scale(0.8) rotate(45deg);
+}
+
+.corazon:nth-child(5) {
+    left: 55%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+    transform: scale(0.6) rotate(45deg);
+}
+
+.corazon:nth-child(6) {
+    left: 67%;
+    animation-duration: 14s;
+    animation-delay: 0s;
+    transform: scale(0.5) rotate(45deg);
+}
+
+.corazon:nth-child(7) {
+    left: 78%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+    transform: scale(0.8) rotate(45deg);
+}
+
+.corazon:nth-child(8) {
+    left: 90%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    transform: scale(0.6) rotate(45deg);
+}
+
+/* Sobre */
+.sobre {
+    position: relative;
+    width: 420px;
+    height: 280px;
+    z-index: 2;
+    cursor: pointer;
+    filter: drop-shadow(0 20px 25px rgba(80, 20, 35, 0.3));
+    transition: transform 0.4s ease;
+}
+
+/* Estructura del sobre */
+.cuerpo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff7f8;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #9e5365;
+}
+
+/* Tapa */
+.tapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 210px solid transparent;
+    border-right: 210px solid transparent;
+    border-top: 150px solid #9e5365;
+    z-index: 4;
+    transform-origin: top center;
+    transition: transform 0.8s ease;
+}
+
+/* Pliegue izquierdo */
+.pliegue-izq {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 140px solid transparent;
+    border-left: 210px solid #d9a7b2;
+    z-index: 3;
+}
+
+/* Pliegue derecho */
+.pliegue-der {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 140px solid transparent;
+    border-right: 210px solid #d9a7b2;
+    z-index: 3;
+}
+
+/* Pliegue de abajo */
+.pliegue-abajo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 210px solid transparent;
+    border-right: 210px solid transparent;
+    border-bottom: 145px solid #b96b7d;
+    z-index: 5;
+}
+
+/* Sello */
+.sello {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    background: #722f3f;
+    border-radius: 50%;
+    z-index: 6;
+    box-shadow: 0 4px 10px rgba(80, 20, 35, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Figura del centro */
+.sello::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ffffff;
+    left: 15px;
+    top: 16px;
+    transform: rotate(45deg);
+    border-radius: 4px;
+}
+
+/* Animación del sello */
+.sobre:hover .sello {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+    .sobre {
+        width: 320px;
+        height: 215px;
+    }
+
+    .tapa {
+        border-left-width: 160px;
+        border-right-width: 160px;
+        border-top-width: 115px;
+    }
+
+    .pliegue-izq {
+        border-top-width: 108px;
+        border-left-width: 160px;
+    }
+
+    .pliegue-der {
+        border-top-width: 108px;
+        border-right-width: 160px;
+    }
+
+    .pliegue-abajo {
+        border-left-width: 160px;
+        border-right-width: 160px;
+        border-bottom-width: 112px;
+    }
+
+    .sello {
+        width: 45px;
+        height: 45px;
+    }
+
+    .sello::before {
+        width: 20px;
+        height: 20px;
+        left: 12px;
+        top: 12px;
+    }
+}
